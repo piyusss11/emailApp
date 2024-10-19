@@ -37,25 +37,25 @@ const EmailBody = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div className="p-6 bg-white rounded-lg border-2 w-2/3 h-screen">
-      {/* Email Header */}
+    <div className="p-6 bg-white rounded-lg border-2 border-[#CFD2DC] w-2/3 h-screen">
+
       <div className="flex justify-between items-start pb-4 mb-4">
         <div className="flex items-center">
-          <div className="bg-[#E54065] text-white rounded-full h-10 w-10 flex items-center justify-center font-bold">
-            {emailInfo.from.name[0]}
-            {/* Assuming this is the sender's initial */}
+          <div className="bg-[#E54065] text-white rounded-full h-10 w-10 flex items-center justify-center font-bold mb-6">
+            {emailInfo.from.name[0].toLocaleUpperCase()}
+            
           </div>
           <div className="ml-4">
             <h2 className="text-lg font-semibold">{emailInfo.subject}</h2>
-            <p className="text-sm text-gray-500">
+            <p className=" text-sm text-gray-500 pt-4">
               {new Date(emailInfo.date).toLocaleDateString()}{" "}
               {new Date(emailInfo.date).toLocaleTimeString([], {
                 hour: "2-digit",
                 minute: "2-digit",
               })}
-              {/* {emailData.senderEmail} */}
+             
             </p>
-            <p className="text-sm text-gray-500">{/* {emailData.date} */}</p>
+          
           </div>
         </div>
         <button
@@ -66,7 +66,7 @@ const EmailBody = () => {
         </button>
       </div>
 
-      {/* Email Body */}
+     
       <div className="px-16 mt-4">
         <p
           dangerouslySetInnerHTML={{ __html: emailData }}

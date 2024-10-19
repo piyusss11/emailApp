@@ -19,13 +19,13 @@ const SingleEmail: React.FC<Props> = ({ email }) => {
     <li
       onClick={() => clickEmail(email.id, email)}
       key={email.id}
-      className={` py-4 px-4 rounded-md flex items-start space-x-4 border-2 ${email.isRead ? "bg-gray-400": "bg-white"}`}
+      className={` py-4 px-4 rounded-md flex items-start space-x-4 border-2 border-[#CFD2DC] ${email.isRead ? "bg-[#f2f2f2]": "bg-white"}`}
     >
-      {/* Sender's Profile Picture */}
+    
       <div className="w-12 h-12 rounded-full bg-[#E54065] text-white flex items-center justify-center font-bold">
-        {email.from.name[0]}
+        {email.from.name[0].toLocaleUpperCase()}
       </div>
-      {/* Email Details */}
+    
       <div className="flex-1">
         <div className="text-sm text-gray-500">
           From:{" "}
