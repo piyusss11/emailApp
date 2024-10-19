@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import EmailBody from "./components/EmailBody";
 import ListOfEmails from "./components/ListOfEmails";
 
+
 function App() {
   const emails = useSelector((state: RootState) => state.emails.emails);
   const [loading, setLoading] = useState<boolean>(true);
@@ -58,9 +59,7 @@ function App() {
     setFilteredEmails(filtered);
   };
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+
 
   return (
     <Router>
@@ -102,10 +101,14 @@ function App() {
         </div>
         <div className="flex gap-6 h-full">
           <ListOfEmails emails={filteredEmails} />
-          <Routes>
-            <Route path="/" />
-            <Route path="/email/:id" element={<EmailBody />} />
-          </Routes>
+          {loading ? (
+            ""
+          ) : (
+            <Routes>
+              <Route path="/" />
+              <Route path="/email/:id" element={<EmailBody />} />
+            </Routes>
+          )}
         </div>
       </div>
     </Router>

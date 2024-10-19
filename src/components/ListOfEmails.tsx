@@ -4,7 +4,7 @@ import { addAllEmails, Email, EmailsState } from "../utils/emailsSlice";
 import { useDispatch } from "react-redux";
 import {  useLocation } from "react-router-dom";
 import SingleEmail from "./SingleEmail";
-
+import loadingIcon from "../assets/loading.png";
 const ListOfEmails: React.FC<EmailsState> = ({ emails }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ const ListOfEmails: React.FC<EmailsState> = ({ emails }) => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="absolute top-1/2 left-1/2"><img className="animate-spin" src={loadingIcon} alt="loading" /></div>;
   }
 const emailWidthFull = location.pathname === "/" ? "w-full" : "w-1/3"
   return (
